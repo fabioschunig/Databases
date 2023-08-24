@@ -12,7 +12,7 @@ MySQL code snippets
 ```bash
 # Current Session
 export PATH=${PATH}:/opt/lampp/bin
-# Permanantly
+# Permanently
 echo 'export PATH=$PATH:/opt/lampp/bin' >> ~/.profile
 ```
 
@@ -34,7 +34,7 @@ SELECT user, host FROM mysql.user;
 CREATE USER 'someuser'@'localhost' IDENTIFIED BY 'somepassword';
 ```
 
-## Grant all priveleges on all databases
+## Grant all privileges on all databases
 
 ```sql
 GRANT ALL PRIVILEGES ON * . * TO 'someuser'@'localhost';
