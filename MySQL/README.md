@@ -27,3 +27,34 @@ mysql -u root -p
 ```sql
 SELECT user, host FROM mysql.user;
 ```
+
+## Create user
+
+```sql
+CREATE USER 'someuser'@'localhost' IDENTIFIED BY 'somepassword';
+```
+
+## Grant all priveleges on all databases
+
+```sql
+GRANT ALL PRIVILEGES ON * . * TO 'someuser'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+## Show grants
+
+```sql
+SHOW GRANTS FOR 'someuser'@'localhost';
+```
+
+## Remove grants
+
+```sql
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'someuser'@'localhost';
+```
+
+## Delete user
+
+```sql
+DROP USER 'someuser'@'localhost';
+```
