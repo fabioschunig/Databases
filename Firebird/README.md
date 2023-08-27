@@ -8,5 +8,17 @@ Firebird code snippets
 ## Login
 
 ```bash
-isql -user SYSDBA -password masterkey;
+isql -user SYSDBA -password masterkey
+```
+
+## GSEC login
+
+```bash
+gsec -user SYSDBA -password masterkey
+
+GSEC> display
+
+     user name                    uid   gid admin     full name
+------------------------------------------------------------------------------------------------
+SYSDBA                              0     0           Sql Server Administrator
 ```
