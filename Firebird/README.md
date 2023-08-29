@@ -45,3 +45,27 @@ GSEC> delete newadmin
 
 GSEC> quit
 ```
+
+## Creating a database
+
+```bash
+isql -user SYSDBA -password masterkey
+
+SQL> CREATE DATABASE 'c:\tmp\test_database.fdb' page_size 8192;
+
+SQL> SHOW TABLE RDB$RELATIONS;
+
+SQL> SHOW DATABASE;
+Database: c:\tmp\test_database.fdb
+        Owner: SYSDBA
+PAGE_SIZE 8192
+Number of DB pages allocated = 164
+Sweep interval = 20000
+Forced Writes are ON
+Transaction - oldest = 1
+Transaction - oldest active = 2
+Transaction - oldest snapshot = 2
+Transaction - Next = 6
+ODS = 11.2
+Default Character set: NONE
+```
