@@ -96,3 +96,29 @@ SQL> SELECT id, name FROM customer;
            2 Test customer 2
            3 Test customer 3
 ```
+
+## GBAK - Backup
+
+```bash
+gbak -b -g -v -user SYSDBA -password masterkey "localhost:c:\tmp\test_database.fdb" "c:\tmp\backup_database.fdk"
+
+gbak:readied database localhost:c:\tmp\test_database.fdb for backup
+gbak:creating file c:\tmp\backup_database.fdk
+gbak:starting transaction
+gbak:database localhost:c:\tmp\test_database.fdb has a page size of 8192 bytes.
+(...)
+gbak:closing file, committing, and finishing. 2560 bytes written
+```
+
+## GBAK - Restore
+
+```bash
+gbak -c -v -user SYSDBA -password masterkey "c:\tmp\backup_database.fdk" "localhost:c:\tmp\restore_database.fdb"
+
+gbak:opened file c:\tmp\backup_database.fdk
+gbak:transportable backup -- data in XDR format
+gbak:           backup file is compressed
+gbak:created database localhost:c:\tmp\restore_database.fdb, page_size 8192 bytes
+(...)
+gbak:finishing, closing, and going home
+```
