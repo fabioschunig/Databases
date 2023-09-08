@@ -8,10 +8,28 @@ GSEC> quit
 
 > mkdir c:\example-database
 
+
 > isql -user fabio -password newpass
 
-SQL> CREATE DATABASE 'c:\example-database\example-database.fdb' page_size 8192;
+SQL> CREATE DATABASE 'c:\example-database\example-database.fdb' PAGE_SIZE 8192;
 
-SQL> show database 'c:\example-database\example-database.fdb';
+SQL> SHOW DATABASE 'c:\example-database\example-database.fdb';
+
+SQL> quit;
+
+
+> isql -user fabio -password newpass
+
+SQL> CONNECT 'c:\example-database\example-database.fdb';
+Database:  'c:\example-database\example-database.fdb', User: fabio
+
+SQL> CREATE TABLE customer (
+CON>   id int not null primary key,
+CON>   name varchar(128) not null,
+CON>   created timestamp default current_timestamp not null,
+CON>   updated timestamp
+CON> );
+
+SQL> SHOW TABLE customer;
 
 SQL> quit;
