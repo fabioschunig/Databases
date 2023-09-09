@@ -24,11 +24,11 @@ SQL> CONNECT 'c:\example-database\example-database.fdb';
 Database:  'c:\example-database\example-database.fdb', User: fabio
 
 SQL> CREATE TABLE customer (
-CON>   id int not null primary key,
-CON>   name varchar(128) not null,
-CON>   created timestamp default current_timestamp not null,
-CON>   updated timestamp
-CON> );
+    id int not null primary key,
+    name varchar(128) not null,
+    created timestamp default current_timestamp not null,
+    updated timestamp
+);
 
 SQL> SHOW TABLE customer;
 
