@@ -41,6 +41,37 @@ SQL> ALTER TABLE customer ADD CONSTRAINT pk_customer PRIMARY KEY (id);
 SQL> SHOW TABLE customer;
 
 
+-- sequence for customer
+SQL> CREATE SEQUENCE sq_customer;
+
+SQL> SHOW SEQUENCE sq_customer;
+Generator SQ_CUSTOMER, current value is 0
+
+
+-- customer trigger for sequence
+SQL> SET TERM ^ ;
+CREATE TRIGGER tg_customer_bi
+ACTIVE BEFORE INSERT POSITION 0
+ON customer
+AS
+BEGIN
+  if (new.id is null)
+    then new.id = next value for sq_customer;
+END^
+SET TERM ; ^
+
+SQL> SHOW TRIGGER tg_customer_bi;
+
+Triggers on Table CUSTOMER:
+TG_CUSTOMER_BI, Sequence: 0, Type: BEFORE INSERT, Active
+AS
+BEGIN
+  if (new.id is null)
+    then new.id = next value for sq_customer;
+END
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 -- table product
 SQL> CREATE TABLE product (
     id int not null,
